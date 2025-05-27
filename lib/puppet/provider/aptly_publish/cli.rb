@@ -12,8 +12,8 @@ Puppet::Type.type(:aptly_publish).provide(:cli) do
     flags = {
       'distribution'         => resource[:distribution],
       'label'                => resource[:label],
-      'notautomatic'         => resource[:notautomatic],
-      'butautomaticupgrades' => resource[:butautomaticupgrades]
+      'notautomatic'         => resource[:notautomatic] ? 'yes' : 'no',
+      'butautomaticupgrades' => resource[:butautomaticupgrades] ? 'yes' : 'no'
     }
 
     if resource[:architectures] != :undef
