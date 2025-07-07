@@ -55,4 +55,14 @@ Puppet::Type.newtype(:aptly_publish) do
     desc 'Label to publish with'
     defaultto ''
   end
+
+  newparam(:notautomatic, boolean: false, parent: Puppet::Parameter::Boolean) do
+    desc 'set value for NotAutomatic field'
+    defaultto :false
+  end
+
+  newparam(:butautomaticupgrades, boolean: false, parent: Puppet::Parameter::Boolean) do
+    desc 'set value for ButAutomaticUpgrades field'
+    defaultto :false
+  end
 end

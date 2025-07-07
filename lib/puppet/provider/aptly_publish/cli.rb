@@ -10,8 +10,10 @@ Puppet::Type.type(:aptly_publish).provide(:cli) do
     Puppet.info("Publishing Aptly #{resource[:source_type]} #{name}")
 
     flags = {
-      'distribution' => resource[:distribution],
-      'label'        => resource[:label]
+      'distribution'         => resource[:distribution],
+      'label'                => resource[:label],
+      'notautomatic'         => resource[:notautomatic] ? 'yes' : 'no',
+      'butautomaticupgrades' => resource[:butautomaticupgrades] ? 'yes' : 'no'
     }
 
     if resource[:architectures] != :undef
