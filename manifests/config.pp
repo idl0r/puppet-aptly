@@ -21,7 +21,12 @@ class aptly::config {
     mode   => '0644',
   }
 
-  recursive_file_permissions { $aptly::root_dir:
+  file { "${aptly::root_dir}/db":
+    ensure => directory,
+    mode   => '0644',
+  }
+
+  recursive_file_permissions { "${aptly::root_dir}/db":
     owner   => $aptly::user,
     group   => $aptly::group,
     require => File[$aptly::root_dir],
