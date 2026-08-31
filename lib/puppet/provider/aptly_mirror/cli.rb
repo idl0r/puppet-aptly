@@ -21,6 +21,7 @@ Puppet::Type.type(:aptly_mirror).provide(:cli) do
         'filter'            => resource[:filter],
         'filter-with-deps'  => resource[:filter_with_deps],
         'with-installer'    => resource[:with_installer],
+        'force-components'  => resource[:force_components],
       }
     )
 
