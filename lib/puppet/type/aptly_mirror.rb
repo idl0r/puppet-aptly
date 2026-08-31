@@ -84,4 +84,9 @@ Puppet::Type.newtype(:aptly_mirror) do
     desc 'download additional not packaged installer files'
     defaultto :false
   end
+
+  newparam(:force_components, boolean: false, parent: Puppet::Parameter::Boolean) do
+    desc '(only with component list on command line) skip check that requested components are listed in Release file'
+    defaultto :false
+  end
 end

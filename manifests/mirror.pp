@@ -15,6 +15,7 @@ define aptly::mirror (
   Variant[String, Undef] $filter = undef,
   Boolean $filter_with_deps      = false,
   Boolean $with_installer        = false,
+  Boolean $force_components      = false,
 ) {
 
   aptly_mirror { $name:
@@ -30,5 +31,6 @@ define aptly::mirror (
     filter           => $filter,
     filter_with_deps => $filter_with_deps,
     with_installer   => $with_installer,
+    force_components => $force_components,
   }
 }
